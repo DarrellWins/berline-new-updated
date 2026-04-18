@@ -3,232 +3,521 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>We Don’t Just Clean, We Refresh</title>
-
+<title>Berline's Fresh Touch Cleaning – DMV Area</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff0f5;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* HEADER */
-header {
-  text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(to right, #ff69b4, #ffb6c1);
-  color: white;
-}
+  :root {
+    --pink: #ff3d7f;
+    --pink-light: #ff79a8;
+    --pink-pale: #fff0f5;
+    --gold: #f5c842;
+    --dark: #1a0a10;
+    --white: #ffffff;
+    --shadow: 0 8px 32px rgba(255,61,127,0.15);
+  }
 
-.logo {
-  width: 120px;
-  margin-bottom: 10px;
-}
+  html { scroll-behavior: smooth; }
 
-.btn {
-  background: white;
-  color: #ff69b4;
-  padding: 10px 20px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+  }
 
-/* SECTIONS */
-section {
-  max-width: 1000px;
-  margin: auto;
-  padding: 40px 20px;
-}
+  /* ── HERO ── */
+  header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px 80px;
+    overflow: hidden;
+    background: var(--white);
+  }
 
-h2 {
-  text-align: center;
-  color: #ff69b4;
-}
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255,61,127,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(245,200,66,0.10) 0%, transparent 60%);
+    pointer-events: none;
+  }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+  /* decorative sparkles */
+  header::after {
+    content: '✦ ✦ ✦';
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 8px;
+    opacity: 0.7;
+  }
 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+  .logo {
+    width: 240px;
+    max-width: 60vw;
+    margin-bottom: 28px;
+    animation: floatUp 0.9s ease both;
+    filter: drop-shadow(0 8px 24px rgba(255,61,127,0.18));
+  }
 
-/* PRICING */
-.pricing {
-  background: #ffe4ec;
-  padding: 20px;
-  border-radius: 15px;
-}
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    max-width: 640px;
+    animation: floatUp 0.9s 0.15s ease both;
+  }
 
-/* FORM */
-.booking-form {
-  background: white;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+  header h1 span { color: var(--pink); font-style: italic; }
 
-.form-group {
-  margin-bottom: 15px;
-}
+  header p {
+    margin-top: 14px;
+    font-size: 1.05rem;
+    color: #7a4558;
+    letter-spacing: 0.04em;
+    font-weight: 300;
+    animation: floatUp 0.9s 0.25s ease both;
+  }
 
-label {
-  font-weight: bold;
-  color: #ff69b4;
-}
+  .btn-group {
+    margin-top: 32px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: floatUp 0.9s 0.35s ease both;
+  }
 
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  margin-top: 5px;
-}
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
 
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border: 2px solid #ff69b4;
-}
+  .btn-primary {
+    background: var(--pink);
+    color: white;
+    box-shadow: 0 6px 24px rgba(255,61,127,0.35);
+  }
 
-input[type="file"] {
-  background: #ffe4ec;
-  border: none;
-}
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(255,61,127,0.45); }
 
-button {
-  width: 100%;
-  padding: 12px;
-  background: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
+  .btn-outline {
+    background: transparent;
+    color: var(--pink);
+    border: 2px solid var(--pink);
+  }
 
-button:hover {
-  background: #ff1493;
-}
+  .btn-outline:hover { background: var(--pink-pale); transform: translateY(-2px); }
 
-small {
-  color: gray;
-}
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--pink);
+    color: white;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    padding: 18px 24px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
 
-footer {
-  background: #ff69b4;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
+  .trust-bar span::before { margin-right: 8px; }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 80px 24px;
+  }
+
+  .section-label {
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 48px;
+    line-height: 1.2;
+  }
+
+  h2 em { color: var(--pink); font-style: italic; }
+
+  /* ── SERVICES ── */
+  .services-bg {
+    background: var(--pink-pale);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px 24px;
+    box-shadow: var(--shadow);
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--pink), var(--gold));
+    border-radius: 20px 20px 0 0;
+  }
+
+  .card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(255,61,127,0.2); }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  .card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .card p {
+    font-size: 0.88rem;
+    color: #7a4558;
+    line-height: 1.6;
+  }
+
+  /* ── PRICING ── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+  }
+
+  .price-card {
+    border: 2px solid #ffd0e4;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+  }
+
+  .price-card.featured {
+    border-color: var(--pink);
+    background: var(--pink-pale);
+  }
+
+  .price-card.featured::after {
+    content: 'Most Popular';
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--pink);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 4px 14px;
+    border-radius: 20px;
+  }
+
+  .price-card:hover { border-color: var(--pink); transform: translateY(-4px); }
+
+  .price-card .price-icon { font-size: 2rem; margin-bottom: 12px; }
+  .price-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 8px; }
+  .price-card .amount { font-size: 2rem; font-weight: 700; color: var(--pink); }
+  .price-card .desc { font-size: 0.83rem; color: #7a4558; margin-top: 8px; line-height: 1.5; }
+
+  /* ── FORM ── */
+  .form-bg { background: var(--pink-pale); }
+
+  .booking-form {
+    background: white;
+    padding: 40px 36px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+  .form-group { margin-bottom: 18px; }
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #c0406a;
+    margin-bottom: 6px;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #f0c0d0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    background: #fffafe;
+    color: var(--dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px rgba(255,61,127,0.12);
+  }
+
+  input[type="file"] {
+    background: var(--pink-pale);
+    border-color: #ffd0e4;
+    cursor: pointer;
+  }
+
+  textarea { resize: vertical; min-height: 100px; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--pink);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(255,61,127,0.35);
+    margin-top: 8px;
+  }
+
+  .submit-btn:hover { background: #e8005f; transform: translateY(-2px); box-shadow: 0 10px 32px rgba(255,61,127,0.45); }
+
+  .secure-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #b07090;
+    margin-top: 14px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 0.88rem;
+  }
+
+  footer strong { color: var(--pink-light); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes floatUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
 <header>
-  <img src="logo.png" alt="Berline’s Cleaning Logo" class="logo">
-  <h1>We Don’t Just Clean, We Refresh</h1>
-  <p>Professional Home Cleaning Services (DMV Area)</p>
-  <a href="#contact" class="btn">Book Now</a>
+  <img src="logo.png" alt="Berline's Fresh Touch Cleaning" class="logo" onerror="this.style.display='none'">
+  <h1>We Don't Just Clean,<br><span>We Refresh.</span></h1>
+  <p>Professional Home Cleaning · DMV Area</p>
+  <div class="btn-group">
+    <a href="#contact" class="btn btn-primary">Book a Cleaning</a>
+    <a href="#services" class="btn btn-outline">Our Services</a>
+  </div>
 </header>
 
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <span>✦ Insured & Trusted</span>
+  <span>✦ Eco-Friendly Products</span>
+  <span>✦ 100% Satisfaction</span>
+  <span>✦ DMV Area Specialists</span>
+</div>
+
 <!-- SERVICES -->
-<section>
-  <h2>Our Services</h2>
-  <div class="grid">
-    <div class="card">Standard Cleaning</div>
-    <div class="card">Deep Cleaning</div>
-    <div class="card">Move-In / Move-Out</div>
-    <div class="card">Recurring Cleaning</div>
-  </div>
-</section>
+<div class="services-bg" id="services">
+  <section>
+    <span class="section-label">What We Offer</span>
+    <h2>Services Built Around <em>Your Home</em></h2>
+    <div class="grid">
+      <div class="card">
+        <span class="card-icon">🧹</span>
+        <h3>Standard Cleaning</h3>
+        <p>Regular maintenance cleaning to keep your home consistently fresh and spotless.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">✨</span>
+        <h3>Deep Cleaning</h3>
+        <p>Top-to-bottom detail work — tackling the spots regular cleaning misses.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📦</span>
+        <h3>Move-In / Move-Out</h3>
+        <p>Leave your old space spotless or arrive to a fresh, clean new home.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🔄</span>
+        <h3>Recurring Cleaning</h3>
+        <p>Weekly, bi-weekly, or monthly — we build a schedule that works for you.</p>
+      </div>
+    </div>
+  </section>
+</div>
 
 <!-- PRICING -->
-<section>
-  <h2>Pricing</h2>
-  <div class="pricing">
-    <p><b>Standard:</b> $80–$160</p>
-    <p><b>Deep Cleaning:</b> $150+</p>
-    <p><b>Move-Out:</b> $180+</p>
+<section id="pricing">
+  <span class="section-label">Transparent Pricing</span>
+  <h2>Simple, <em>Honest</em> Rates</h2>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-icon">🧹</div>
+      <h3>Standard Cleaning</h3>
+      <div class="amount">$80–$160</div>
+      <div class="desc">Perfect for regular maintenance. Includes all main living areas, bathrooms & kitchen.</div>
+    </div>
+    <div class="price-card featured">
+      <div class="price-icon">✨</div>
+      <h3>Deep Cleaning</h3>
+      <div class="amount">$150+</div>
+      <div class="desc">Full detail clean. Inside appliances, baseboards, window sills & hard-to-reach areas.</div>
+    </div>
+    <div class="price-card">
+      <div class="price-icon">📦</div>
+      <h3>Move-Out Clean</h3>
+      <div class="amount">$180+</div>
+      <div class="desc">Landlord-ready clean. We leave no corner untouched so you get your deposit back.</div>
+    </div>
   </div>
 </section>
 
 <!-- BOOKING FORM -->
-<section id="contact">
-  <h2>Book a Cleaning</h2>
+<div class="form-bg" id="contact">
+  <section>
+    <span class="section-label">Get Started</span>
+    <h2>Book Your <em>Cleaning</em></h2>
 
-  <form action="https://formspree.io/f/xeevkqpz" method="POST" enctype="multipart/form-data" class="booking-form" onsubmit="return successMsg()">
+    <form action="https://formspree.io/f/xeevkqpz" method="POST" enctype="multipart/form-data" class="booking-form" onsubmit="return successMsg()">
 
-    <div class="form-group">
-      <label>Full Name</label>
-      <input type="text" name="name" placeholder="John Smith" required>
-    </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="jane@email.com" required>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" name="email" required>
-    </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(202) 555-0100" required>
+        </div>
+        <div class="form-group">
+          <label>Preferred Date</label>
+          <input type="date" name="date" required>
+        </div>
+      </div>
 
-    <div class="form-group">
-      <label>Phone</label>
-      <small>We’ll only contact you about your booking</small>
-      <input type="tel" name="phone" required>
-    </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" name="address" placeholder="123 Main St, Washington DC" required>
+      </div>
 
-    <div class="form-group">
-      <label>Address</label>
-      <input type="text" name="address" placeholder="123 Main St" required>
-    </div>
+      <div class="form-group">
+        <label>Service</label>
+        <select name="service" required>
+          <option value="" disabled selected>Select a service…</option>
+          <option>Standard Cleaning</option>
+          <option>Deep Cleaning</option>
+          <option>Move-In / Move-Out</option>
+          <option>Recurring Cleaning</option>
+        </select>
+      </div>
 
-    <div class="form-group">
-      <label>Service</label>
-      <select name="service">
-        <option disabled selected>Select a service</option>
-        <option>Standard Cleaning</option>
-        <option>Deep Cleaning</option>
-        <option>Move-In / Move-Out</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label>Upload Photos (Optional)</label>
+        <input type="file" name="photos" accept="image/*" multiple>
+        <small style="color:#b07090;font-size:0.8rem;">Upload photos for a more accurate quote</small>
+      </div>
 
-    <div class="form-group">
-      <label>Preferred Date</label>
-      <input type="date" name="date" required>
-    </div>
+      <div class="form-group">
+        <label>Notes</label>
+        <textarea name="message" placeholder="Any special requests or details about your space…"></textarea>
+      </div>
 
-    <!-- FILE UPLOAD -->
-    <div class="form-group">
-      <label>Upload Photos (Optional)</label>
-      <input type="file" name="photos" accept="image/*" multiple>
-      <small>Upload photos for a more accurate quote</small>
-    </div>
+      <button type="submit" class="submit-btn">✦ Submit Booking Request</button>
+      <p class="secure-note">🔒 Your information is safe and never shared.</p>
 
-    <div class="form-group">
-      <label>Notes</label>
-      <textarea name="message"></textarea>
-    </div>
-
-    <button type="submit">Submit Booking</button>
-
-    <p style="text-align:center; font-size:14px;">🔒 Your info is safe</p>
-
-  </form>
-</section>
+    </form>
+  </section>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 Berline’s Cleaning</p>
+  <p><strong>Berline's Fresh Touch Cleaning</strong> · DMV Area · © 2026</p>
+  <p style="margin-top:8px;">We don't just clean — we refresh.</p>
 </footer>
 
 <script>
 function successMsg() {
-  alert("Booking sent! We’ll contact you soon 💕");
+  alert("Booking sent! We'll be in touch soon 💕");
   return true;
 }
 </script>
